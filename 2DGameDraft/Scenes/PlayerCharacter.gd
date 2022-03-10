@@ -13,3 +13,10 @@ export (float) var acceleration = 25
 enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, FALL, ATTACK}
 
 onready var player_state = state.IDLE
+
+
+
+
+func _ready():
+	$AnimationPlayer.play("idle")
+	pass
