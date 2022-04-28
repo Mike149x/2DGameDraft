@@ -56,7 +56,7 @@ func get_input():
 
 func _physics_process(delta):        #checks every frame
 	get_input()
-	print(is_on_floor())
+	#print(is_on_floor())
 	
 	if velocity == Vector2.ZERO:                                      #if not moving, IDLE STATE
 		player_state = state.IDLE
