@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/SwingingTrap.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/trap_suspended_anim_strip_18.png" type="Texture" id=2]
@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=20]
 resource_name = "swing"
 length = 2.0
 loop = true
@@ -29,22 +29,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( -104.1, -0.5, 1.06149, 0.5, -1.06149, 104.1, -0.6, 0.261482, 0.6, -0.261482, -104.1, -0.5, -0.0614853, 0.5, 0.0614853 ),
-"times": PoolRealArray( 0, 1, 2 )
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "swing (copy)"
-length = 2.0
-loop = true
-step = 0.05
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 104.1, -0.25, 0, 0.25, 0, -104.1, -0.25, 0, 0.25, 0, 104.1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1, 2 )
 }
 
@@ -63,7 +47,6 @@ polygon = PoolVector2Array( 0.0625, 14, -6.875, 14, -7.9375, 15.9375, -11.875, 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
-anims/swing = SubResource( 2 )
-"anims/swing (copy)" = SubResource( 3 )
+anims/swing = SubResource( 20 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

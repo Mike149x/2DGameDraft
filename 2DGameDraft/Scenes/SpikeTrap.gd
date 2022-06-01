@@ -1,8 +1,11 @@
 extends Area2D
 
+export (int) var wait_time = 0.6
 
+ 
 
 func _ready():
+	
 	$AnimationPlayer.play("SpikeTrigger")
 
 
