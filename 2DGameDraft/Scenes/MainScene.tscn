@@ -339,6 +339,8 @@ hframes = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D"]
 shape = SubResource( 22 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [connection signal="body_entered" from="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade2" method="_on_Area2D_body_entered"]
 
