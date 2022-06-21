@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/PlayerCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/SavePoint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/MainScene.gd" type="Script" id=9]
 [ext_resource path="res://Sprites/On (38x38).png" type="Texture" id=10]
+[ext_resource path="res://OtherAssets/papercut.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -235,6 +236,10 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -2, -31, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, -129, 0, 0, 0, 0, 0, -130, -30, 0, 0, 0, 0, -2, -31 )
 }
 
+[sub_resource type="DynamicFont" id=25]
+size = 35
+font_data = ExtResource( 11 )
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 9 )
 
@@ -340,6 +345,19 @@ hframes = 8
 shape = SubResource( 22 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+margin_left = 1108.0
+margin_top = 22.0
+margin_right = 1266.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 25 )
+text = "00:00:00"
+align = 2
 
 [connection signal="body_entered" from="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade2" method="_on_Area2D_body_entered"]
