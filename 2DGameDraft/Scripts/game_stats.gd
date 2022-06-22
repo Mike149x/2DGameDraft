@@ -26,17 +26,16 @@ func get_time():
 	var minutes = current_time/1000/60
 	var seconds = current_time/1000%60
 	var msec = current_time%1000/10
-	if minutes < 10:
-		if minutes == 0:
-			minutes = "00"
-		else:
-			minutes = "0" + str(minutes)
-	if seconds < 10:
-		if seconds == 0:
-			seconds = "00"
-		else:
-			seconds = "0" + str(seconds)
 	
+	if minutes < 10:
+		minutes = "0" + str(minutes)
+	if seconds < 10:
+		seconds = "0" + str(seconds)
+	if msec < 10:
+		if msec == 0:
+			msec = "00"
+		else:
+			msec = "0" + str(msec)
 	
 	return str(minutes) + ":" + str(seconds) + ":" + str(msec)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/PlayerCharacter.tscn" type="PackedScene" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://Sprites/trap_spikes_anim_strip_7.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/SpinningBlade.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/On (38x38).png" type="Texture" id=11]
+[ext_resource path="res://OtherAssets/papercut.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=29]
+size = 35
+font_data = ExtResource( 12 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -330,6 +335,23 @@ _data = {
 [node name="Level1" type="Node2D"]
 script = ExtResource( 5 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+margin_left = 1108.0
+margin_top = 22.0
+margin_right = 1266.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 29 )
+text = "00:00:00"
+align = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 141, 97 )
 tile_set = SubResource( 2 )
@@ -493,6 +515,9 @@ position = Vector2( 94, 231 )
 [node name="SavePoint2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 381, 231 )
 
+[node name="SavePoint4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 55, 151 )
+
 [node name="SavePoint5" parent="." instance=ExtResource( 7 )]
 position = Vector2( 131, 326 )
 
@@ -517,7 +542,6 @@ rotation = -1.5708
 rotate = false
 
 [node name="Sprite" type="Sprite" parent="SpinningBlade/Path2D/PathFollow2D"]
-position = Vector2( 52, 0.000183105 )
 texture = ExtResource( 11 )
 hframes = 8
 
