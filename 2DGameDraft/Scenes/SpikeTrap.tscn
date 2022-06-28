@@ -62,7 +62,7 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 
-[node name="SpikeTrap" type="Area2D"]
+[node name="SpikeTrap" type="Area2D" groups=["Deadly"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -75,7 +75,6 @@ hframes = 7
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SpikeTrigger"
 anims/RESET = SubResource( 20 )
 anims/SpikeTrigger = SubResource( 21 )
-
-[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/PlayerCharacter.tscn" type="PackedScene" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://Scenes/MainScene.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/SpikeTrap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/SavePoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/SpikeTrap.gd" type="Script" id=8]
-[ext_resource path="res://Sprites/trap_spikes_anim_strip_7.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/SpinningBlade.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/On (38x38).png" type="Texture" id=11]
 [ext_resource path="res://OtherAssets/papercut.ttf" type="DynamicFontData" id=12]
@@ -196,65 +194,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
-
-[sub_resource type="Animation" id=20]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=21]
-resource_name = "SpikeTrigger"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 3, 2, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true ]
-}
-
 [sub_resource type="Animation" id=23]
 length = 0.001
 tracks/0/type = "value"
@@ -399,26 +338,12 @@ rotation = 1.5708
 position = Vector2( 456, 233 )
 rotation = 1.5708
 
-[node name="SpikeTrap9" type="Area2D" parent="."]
-position = Vector2( 600, 169 )
-rotation = 1.5708
-script = ExtResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeTrap9"]
-shape = SubResource( 1 )
-disabled = true
-
-[node name="Sprite" type="Sprite" parent="SpikeTrap9"]
-texture = ExtResource( 9 )
-hframes = 7
-frame = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SpikeTrap9"]
-anims/RESET = SubResource( 20 )
-anims/SpikeTrigger = SubResource( 21 )
-
 [node name="SpikeTrap14" parent="." instance=ExtResource( 6 )]
 position = Vector2( 600, 185 )
+rotation = 1.5708
+
+[node name="SpikeTrap27" parent="." instance=ExtResource( 6 )]
+position = Vector2( 600, 169 )
 rotation = 1.5708
 
 [node name="SpikeTrap12" parent="." instance=ExtResource( 6 )]
@@ -529,6 +454,7 @@ position = Vector2( 494, 141 )
 script = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningBlade"]
+autoplay = "spin"
 playback_speed = -3.0
 anims/RESET = SubResource( 23 )
 anims/spin = SubResource( 24 )
@@ -545,7 +471,7 @@ rotate = false
 texture = ExtResource( 11 )
 hframes = 8
 
-[node name="Area2D" type="Area2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite"]
+[node name="Area2D" type="Area2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite" groups=["Deadly"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D"]
 shape = SubResource( 22 )
@@ -555,6 +481,7 @@ position = Vector2( 333, 58 )
 script = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningBlade2"]
+autoplay = "spin"
 playback_speed = -3.0
 anims/RESET = SubResource( 26 )
 anims/spin = SubResource( 27 )
@@ -570,11 +497,7 @@ rotate = false
 texture = ExtResource( 11 )
 hframes = 8
 
-[node name="Area2D" type="Area2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite"]
+[node name="Area2D" type="Area2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite" groups=["Deadly"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D"]
 shape = SubResource( 22 )
-
-[connection signal="body_entered" from="SpikeTrap9" to="SpikeTrap9" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade2" method="_on_Area2D_body_entered"]
