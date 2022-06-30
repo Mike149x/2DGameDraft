@@ -300,7 +300,6 @@ tile_data = PoolIntArray( -327689, 0, 0, -327688, 0, 131076, -327687, 0, 131076,
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-smoothing_enabled = true
 script = ExtResource( 3 )
 
 [node name="PlayerCharacter" parent="." instance=ExtResource( 2 )]

@@ -6,6 +6,10 @@ var center = Vector2.ZERO
 
 func _ready():
 	center = get_viewport_rect().size/2
+	target = owner.get_node("PlayerCharacter")
+	# ADD THESE FOR INSTANT ZOOM
+	position = target.global_position
+	zoom = Vector2(0.3,0.3)
 
 func _process(delta):
 	if Input.is_action_just_pressed("zoom"):  #when z is pressed
@@ -18,8 +22,14 @@ func _process(delta):
 
 #checking every frame whether zoomed or unzoomed
 	if zoomed:      
-		zoom = zoom.move_toward(Vector2(0.3,0.3), 0.03)
-		position = position.move_toward(target.global_position, 80)   #global_position gives us the perfect coordinates of the node
+#		zoom = zoom.move_toward(Vector2(0.3,0.3), 0.03)
+#		position = position.move_toward(target.global_position, 80)   #global_position gives us the perfect coordinates of the node
+		position = target.global_position
+		zoom = Vector2(0.3,0.3)
+	
 	else:
-		zoom = zoom.move_toward(Vector2(1,1), 0.03)
-		position = position.move_toward(center, 80)
+#		zoom = zoom.move_toward(Vector2(1,1), 0.03)
+#		position = position.move_toward(center, 80)
+		position = center
+		zoom = Vector2(1,1)
+
