@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/PlayerCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=2]
@@ -240,6 +240,9 @@ _data = {
 size = 35
 font_data = ExtResource( 11 )
 
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 633, 68.25 )
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 9 )
 
@@ -297,6 +300,7 @@ position = Vector2( 267, 278 )
 script = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningBlade"]
+autoplay = "spin"
 playback_speed = -3.0
 anims/RESET = SubResource( 1 )
 anims/spin = SubResource( 20 )
@@ -313,7 +317,7 @@ rotate = false
 texture = ExtResource( 10 )
 hframes = 8
 
-[node name="Area2D" type="Area2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite"]
+[node name="Area2D" type="Area2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite" groups=["Deadly"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D"]
 shape = SubResource( 22 )
@@ -323,6 +327,7 @@ position = Vector2( 561, 223 )
 script = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningBlade2"]
+autoplay = "spin"
 playback_speed = -3.0
 anims/RESET = SubResource( 1 )
 anims/spin = SubResource( 20 )
@@ -339,7 +344,7 @@ rotate = false
 texture = ExtResource( 10 )
 hframes = 8
 
-[node name="Area2D" type="Area2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite"]
+[node name="Area2D" type="Area2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite" groups=["Deadly"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D"]
 shape = SubResource( 22 )
@@ -358,6 +363,13 @@ margin_bottom = 66.0
 custom_fonts/font = SubResource( 25 )
 text = "00:00:00"
 align = 2
+
+[node name="DeathZone" type="Area2D" parent="." groups=["Deadly"]]
+position = Vector2( 91, 409 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2( 269, 21.75 )
+shape = SubResource( 26 )
 
 [connection signal="body_entered" from="SpinningBlade/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="SpinningBlade2/Path2D/PathFollow2D/Sprite/Area2D" to="SpinningBlade2" method="_on_Area2D_body_entered"]
