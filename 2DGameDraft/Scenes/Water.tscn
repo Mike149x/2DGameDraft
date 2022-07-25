@@ -5,6 +5,7 @@
 
 [sub_resource type="Animation" id=1]
 length = 0.001
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -104,6 +105,7 @@ hframes = 4
 frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "water"
 anims/RESET = SubResource( 1 )
 anims/water = SubResource( 2 )
 
