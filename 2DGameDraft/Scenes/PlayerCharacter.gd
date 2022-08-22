@@ -10,9 +10,14 @@ var velocity = Vector2.ZERO    #On start - standing still
 export (float) var friction = 10
 export (float) var acceleration = 25
 
-enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK}
+enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK, ROPEJUMP}
 
 onready var player_state = state.IDLE   #On start - state: idle
+
+###NEW ROPE CODE
+var rope_grabbed = false
+var rope_part = null
+var can_grab = true
 
 
 func _ready():
@@ -89,3 +94,7 @@ func _on_DeathZone_area_entered(area):
 	if area.is_in_group("Deadly"):
 		if GameStats.check_reset() == false:
 			global_position = GameStats.get_spawn().global_position
+
+
+func _on_GRABZONE_area_entered(area):
+	pass # Replace with function body.
