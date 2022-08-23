@@ -14,7 +14,7 @@ enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK, ROPE
 
 onready var player_state = state.IDLE   #On start - state: idle
 
-###NEW ROPE CODE
+###NEW ROPE VARIABLES
 var rope_grabbed = false
 var rope_part = null
 var can_grab = true
@@ -49,6 +49,9 @@ func handle_state(player_state):
 	match(player_state):
 		state.STARTJUMP:
 			velocity.y = jump_speed
+		state.ROPEJUMP:
+			velocity.y = jump_speed/2
+	pass
 
 func get_input():
 	var dir = Input.get_action_strength("right") - Input.get_action_strength("left")     #determine player going left or right based on input
@@ -60,6 +63,20 @@ func get_input():
 
 
 func _physics_process(delta):        #checks every frame
+	###NEW ROPE CODE
+	var rope_release = false
+	if rope_grabbed:
+		global_position = rope_part.global_position
+		if Input.is_action_just_pressed("jump"):
+			rope_grabbed = false
+			rope_part = null
+			$GRABZONE/RopeTimer.start()
+			rope_release = true
+		else:
+			pass
+			
+	
+	
 	get_input()
 	#print(is_on_floor())
 	
@@ -85,11 +102,6 @@ func _physics_process(delta):        #checks every frame
 
 
 
-
-
-
-
-
 func _on_DeathZone_area_entered(area):
 	if area.is_in_group("Deadly"):
 		if GameStats.check_reset() == false:
@@ -97,4 +109,10 @@ func _on_DeathZone_area_entered(area):
 
 
 func _on_GRABZONE_area_entered(area):
-	pass # Replace with function body.
+	if area.is_in_group("Rope") and can_grab:
+		rope_grabbed = true
+		rope_part = area
+		can_grab = false
+
+func _on_RopeTimer_timeout():
+	can_grab = true
