@@ -34,6 +34,7 @@ tracks/0/keys = {
 }
 
 [node name="RopeSwing" type="Node2D"]
+scale = Vector2( 0.75, 0.75 )
 
 [node name="Chain" type="Sprite" parent="."]
 position = Vector2( 0, -1 )

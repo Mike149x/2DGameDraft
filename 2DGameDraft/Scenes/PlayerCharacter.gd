@@ -73,17 +73,21 @@ func _physics_process(delta):        #checks every frame
 			$GRABZONE/RopeTimer.start()
 			rope_release = true
 		else:
-			pass
+			return
 			
-	
-	
+			
 	get_input()
 	#print(is_on_floor())
 	
 	if velocity == Vector2.ZERO:                                      #if not moving, IDLE STATE
 		player_state = state.IDLE
-	if Input.is_action_pressed("jump") and is_on_floor():      #if space pressed, and is on floor, STARTJUMP STATE
-		player_state = state.STARTJUMP
+	if Input.is_action_pressed("jump") and (is_on_floor() or rope_release):      #if space pressed, and is on floor, STARTJUMP STATE
+		if rope_release:
+			player_state = state.ROPEJUMP
+		else:
+			player_state = state.STARTJUMP
+	
+	
 	elif velocity.x != 0:                #if moving, the play run animation
 		player_state = state.RUNNING
 	

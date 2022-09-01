@@ -517,4 +517,4 @@ position = Vector2( 1060, 299 )
 position = Vector2( 1084, 439 )
 
 [node name="RopeSwing" parent="." instance=ExtResource( 15 )]
-position = Vector2( 525, 260 )
+position = Vector2( 554, 288 )
