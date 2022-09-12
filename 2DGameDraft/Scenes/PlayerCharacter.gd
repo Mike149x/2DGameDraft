@@ -82,6 +82,7 @@ func _physics_process(delta):        #checks every frame
 	if velocity == Vector2.ZERO:                                      #if not moving, IDLE STATE
 		player_state = state.IDLE
 	if Input.is_action_pressed("jump") and (is_on_floor() or rope_release):      #if space pressed, and is on floor, STARTJUMP STATE
+		SoundPlayer.play_sound_effect("jump")
 		if rope_release:
 			player_state = state.ROPEJUMP
 		else:
@@ -107,7 +108,9 @@ func _physics_process(delta):        #checks every frame
 
 
 func _on_DeathZone_area_entered(area):
+	
 	if area.is_in_group("Deadly"):
+		SoundPlayer.play_sound_effect("dead")
 		if GameStats.check_reset() == false:
 			global_position = GameStats.get_spawn().global_position
 

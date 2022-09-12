@@ -7,7 +7,9 @@ var music_tracks = {
 }
 
 var sound_effects = {
-	"jump 1":"res://Resources/MiniFantasy - Dungeon SFX Pack/12_human_jump_1.wav",
+	"jump":"res://Resources/MiniFantasy - Dungeon SFX Pack/12_human_jump_1.wav",
+	"land" : "res://Resources/MiniFantasy - Dungeon SFX Pack/13_human_jump_land_2.wav",
+	"dead" : "res://Resources/MiniFantasy - Dungeon SFX Pack/11_human_damage_1.wav",
 }
 	
 
@@ -27,10 +29,21 @@ func _ready():
 	music.play()
 
 
-func play_sound_effects(sfx):
+func play_sound_effect(sfx):
 	var sound = AudioStreamPlayer.new()
 	sound.stream = load(sound_effects[sfx])
 	add_child(sound)
 	sound.play()
 	yield(sound, "finished")
 	sound.queue_free()
+
+
+
+
+
+
+
+
+
+
+
