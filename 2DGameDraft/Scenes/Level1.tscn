@@ -288,6 +288,8 @@ script = ExtResource( 5 )
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 640, 318 )
+motion_scale = Vector2( 0, 1 )
+motion_mirroring = Vector2( 720, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
 scale = Vector2( 4, 4 )
@@ -295,6 +297,8 @@ texture = ExtResource( 18 )
 
 [node name="CloudBG" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 640, 318 )
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1536, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/CloudBG"]
 scale = Vector2( 4, 4 )
@@ -302,6 +306,8 @@ texture = ExtResource( 17 )
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 640, 318 )
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 1536, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Mountains"]
 scale = Vector2( 4, 4 )
@@ -309,6 +315,8 @@ texture = ExtResource( 16 )
 
 [node name="CloudFG" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 640, 318 )
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 1536, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/CloudFG"]
 scale = Vector2( 4, 4 )
