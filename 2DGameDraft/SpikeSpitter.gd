@@ -13,3 +13,6 @@ func _process(delta):
 func _on_SpikeEnd_area_entered(area):
 	if area == arrow:
 		arrow.global_position = $SpitterSprite/Position2D.global_position
+
+
+
