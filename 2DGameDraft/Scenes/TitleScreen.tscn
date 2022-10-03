@@ -449,4 +449,29 @@ texture = ExtResource( 13 )
 anims/EmergeFromFog = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
+[node name="MenuButtons" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -68.0
+margin_right = 152.0
+
+[node name="StartButton" type="Button" parent="MenuButtons"]
+margin_right = 152.0
+margin_bottom = 20.0
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="MenuButtons"]
+margin_top = 24.0
+margin_right = 152.0
+margin_bottom = 44.0
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MenuButtons"]
+margin_top = 48.0
+margin_right = 152.0
+margin_bottom = 68.0
+text = "Quit"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="MenuButtons/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="MenuButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
