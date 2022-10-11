@@ -24,11 +24,11 @@ func change_sound_db(val):
 
 
 func _ready():
-	if current_scene() == Level1.tscn:
+	
 		
-		music.stream = load(music_tracks["field 1"])   #MUSIC AUDIO STREAM IS PRESENT THE WHOLE TIME
-		add_child(music)                             #WE DON'T DELETE THIS
-		music.play()
+	music.stream = load(music_tracks["field 1"])   #MUSIC AUDIO STREAM IS PRESENT THE WHOLE TIME
+	add_child(music)                             #WE DON'T DELETE THIS
+	music.play()
 
 
 func play_sound_effect(sfx):           #FOR SOUND FX WE MAKE NEW AUDIO STREAM PLAYER EACH TIME

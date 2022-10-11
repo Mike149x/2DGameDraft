@@ -50,7 +50,7 @@ func handle_state(player_state):
 		state.STARTJUMP:
 			velocity.y = jump_speed
 		state.ROPEJUMP:
-			velocity.y = jump_speed/2
+			velocity.y = jump_speed/1.5
 	pass
 
 func get_input():
@@ -67,6 +67,8 @@ func _physics_process(delta):        #checks every frame
 	var rope_release = false
 	if rope_grabbed:
 		global_position = rope_part.global_position
+		velocity.y = 0          #reset the speed when grabbing rope, no momentum carried over
+		velocity.x = 0
 		if Input.is_action_just_pressed("jump"):
 			rope_grabbed = false
 			rope_part = null
