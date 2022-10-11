@@ -177,7 +177,7 @@ position = Vector2( 1, 1 )
 shape = SubResource( 11 )
 
 [node name="RopeTimer" type="Timer" parent="GRABZONE"]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [connection signal="area_entered" from="DeathZone" to="." method="_on_DeathZone_area_entered"]
