@@ -45,7 +45,7 @@ func update_animation(anim):
 			$AnimationPlayer.play("running")
 	pass
  
-func handle_state(player_state):
+func handle_state(player_state):           #JUMP AND ROPEJUMP
 	match(player_state):
 		state.STARTJUMP:
 			velocity.y = jump_speed
@@ -109,12 +109,17 @@ func _physics_process(delta):        #checks every frame
 
 
 
-func _on_DeathZone_area_entered(area):
+func _on_DeathZone_area_entered(area):         #ON ENTERING DEATHZONES
 	
-	if area.is_in_group("Deadly"):
+	if area.is_in_group("Deadly") and GameStats.lives >= 1:
 		SoundPlayer.play_sound_effect("dead")
+		GameStats.change_lives(-1)
+		
 		if GameStats.check_reset() == false:
 			global_position = GameStats.get_spawn().global_position
+	
+	if GameStats.lives == 0:        #GAME OVER WHEN LIVES = 0
+		GameStats.TitleScreen()   
 
 
 func _on_GRABZONE_area_entered(area):

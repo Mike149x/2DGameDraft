@@ -1,8 +1,27 @@
 extends Node
 
+var lives = 3
+var lives_max = 3
+
 onready var game_start_time = OS.get_ticks_msec()    #Gets the time the game has been running for, in msecs
 var current_spawn = null          #no spawnpoint, no checkpoint
 					 #SPAWN IN THIS CASE MEANS UNLOCKED CHECKPOINT
+
+
+
+func change_lives(amount):
+	lives += amount
+	lives = clamp(lives, 0, lives_max)
+
+func TitleScreen():
+	lives = 3
+	get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+	
+	
+
+func get_lives():
+	return str(lives)
+
 
 func reset():           #This function resets the game,
 	current_spawn = null   #removes the current spawn
