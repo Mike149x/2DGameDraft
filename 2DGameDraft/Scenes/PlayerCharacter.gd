@@ -118,8 +118,16 @@ func _on_DeathZone_area_entered(area):         #ON ENTERING DEATHZONES
 		if GameStats.check_reset() == false:
 			global_position = GameStats.get_spawn().global_position
 	
+	if area.is_in_group("EndPoint"):
+		if GameStats.check_reset() == false:
+			global_position = GameStats.get_spawn().global_position
+		
+		
+		
 	if GameStats.lives == 0:        #GAME OVER WHEN LIVES = 0
-		GameStats.TitleScreen()   
+		GameStats.TitleScreen()
+	
+	  
 
 
 func _on_GRABZONE_area_entered(area):

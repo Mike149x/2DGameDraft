@@ -1,7 +1,7 @@
 extends Node
 
 var lives = 3
-var lives_max = 3
+var lives_max = 10
 
 onready var game_start_time = OS.get_ticks_msec()    #Gets the time the game has been running for, in msecs
 var current_spawn = null          #no spawnpoint, no checkpoint
@@ -10,8 +10,9 @@ var current_spawn = null          #no spawnpoint, no checkpoint
 
 
 func change_lives(amount):
-	lives += amount
 	lives = clamp(lives, 0, lives_max)
+	lives += amount
+	
 
 func TitleScreen():
 	lives = 3
