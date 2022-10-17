@@ -357,7 +357,7 @@ current = true
 script = ExtResource( 3 )
 
 [node name="PlayerCharacter" parent="." instance=ExtResource( 2 )]
-position = Vector2( 259, 87 )
+position = Vector2( 575, 301 )
 
 [node name="SwingingTrap" parent="." instance=ExtResource( 4 )]
 position = Vector2( 829, 176 )
@@ -409,6 +409,18 @@ rotation = 3.14159
 
 [node name="SpikeTrap28" parent="." instance=ExtResource( 6 )]
 position = Vector2( 573, 235 )
+rotation = 3.14159
+
+[node name="SpikeTrap34" parent="." instance=ExtResource( 6 )]
+position = Vector2( 509, 331 )
+rotation = 3.14159
+
+[node name="SpikeTrap37" parent="." instance=ExtResource( 6 )]
+position = Vector2( 493, 331 )
+rotation = 3.14159
+
+[node name="SpikeTrap38" parent="." instance=ExtResource( 6 )]
+position = Vector2( 477, 331 )
 rotation = 3.14159
 
 [node name="SpikeTrap17" parent="." instance=ExtResource( 6 )]
