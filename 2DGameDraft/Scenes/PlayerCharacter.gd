@@ -107,8 +107,6 @@ func _physics_process(delta):        #checks every frame
 	velocity = move_and_slide(velocity, Vector2.UP)  #This makes the character actually move according to inputs
 
 
-
-
 func _on_DeathZone_area_entered(area):         #ON ENTERING DEATHZONES
 	
 	if area.is_in_group("Deadly") and GameStats.lives >= 1:
@@ -131,7 +129,7 @@ func _on_DeathZone_area_entered(area):         #ON ENTERING DEATHZONES
 	if GameStats.lives == 0:        #GAME OVER WHEN LIVES = 0
 		GameStats.TitleScreen()
 	
-	  
+
 
 
 func _on_GRABZONE_area_entered(area):
