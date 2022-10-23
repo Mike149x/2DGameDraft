@@ -1,12 +1,12 @@
 extends Node2D
 
-
+export (int) var rotation_direction = 1
 func _ready():
 	pass
 
 
 func _process(delta):
-	$RotationPoint.rotation_degrees += 1
+	$RotationPoint.rotation_degrees += rotation_direction
 	$Flame.global_position = $RotationPoint/FlamePos.global_position
 	$Flame2.global_position = $RotationPoint/FlamePos2.global_position
 	$Flame3.global_position = $RotationPoint/FlamePos3.global_position

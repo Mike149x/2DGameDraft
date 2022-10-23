@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var arrow = $Arrow
-var arrow_speed = 200
+export var arrow_speed = 200
 
 
 func _process(delta):
