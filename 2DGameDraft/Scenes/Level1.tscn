@@ -969,7 +969,7 @@ current = true
 script = ExtResource( 3 )
 
 [node name="PlayerCharacter" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1229, 296 )
+position = Vector2( 1178, 307 )
 
 [node name="SwingingTrap" parent="." instance=ExtResource( 4 )]
 position = Vector2( 829, 176 )
@@ -1297,7 +1297,7 @@ position = Vector2( 684, 678 )
 position = Vector2( 47, 678 )
 
 [node name="SavePoint10" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1237, 678 )
+position = Vector2( 1108, 678 )
 
 [node name="SavePoint7" parent="." instance=ExtResource( 7 )]
 position = Vector2( 392, 70 )
