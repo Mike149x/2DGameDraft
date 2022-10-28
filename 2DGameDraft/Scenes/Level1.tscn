@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://Sprites/tileset.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/PlayerCharacter.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Scenes/SpinningFlame.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Sprites/End (Pressed) (64x64).png" type="Texture" id=21]
 [ext_resource path="res://Scenes/EndPoint.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/Water.tscn" type="PackedScene" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 20 )
@@ -1859,6 +1860,9 @@ position = Vector2( 38, 393 )
 
 [node name="Orb10" parent="." instance=ExtResource( 13 )]
 position = Vector2( 45, 393 )
+
+[node name="Water" parent="." instance=ExtResource( 23 )]
+position = Vector2( 460, 700 )
 
 [connection signal="body_entered" from="EndPoint" to="EndPoint" method="_on_EndPoint_body_entered"]
 [connection signal="body_entered" from="EndPoint2" to="EndPoint2" method="_on_EndPoint_body_entered"]
